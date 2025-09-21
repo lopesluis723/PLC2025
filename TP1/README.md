@@ -18,7 +18,7 @@ Trabalho Prático 1 - Criar expressão regular que represente as strings binári
 
 
 ## Lista de Resultados
-- [TPC1](Tpc1.jpg)  
+- [TPC1](TPC1.jpg)  
 
 
 
