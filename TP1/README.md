@@ -17,7 +17,7 @@ impossivel formar "011" pois o unico "0" é seguido de um "1" e depois de "01" s
 
 
 ## Lista de Resultados
-- [TPC1](tpc1.jpg)  
+- [TPC1](Tpc1.jpg)  
 
 
 
