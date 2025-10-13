@@ -1,0 +1,14 @@
+[
+  { "id": "COMMENT", "expreg": "#.*" },
+  { "id": "SELECT", "expreg": "(?i)\\bselect\\b" },
+  { "id": "WHERE", "expreg": "(?i)\\bwhere\\b" },
+  { "id": "LIMIT", "expreg": "(?i)\\blimit\\b" },
+  { "id": "VAR", "expreg": "\\?[A-Za-z_][A-Za-z0-9_]*" },
+  { "id": "IRI", "expreg": "[A-Za-z_][A-Za-z0-9_]*:[A-Za-z_][A-Za-z0-9_]*" },
+  { "id": "STRING", "expreg": "\\\".*?\\\"(@[a-z]+)?" },
+  { "id": "NUMBER", "expreg": "[0-9]+" },
+  { "id": "SYMBOL", "expreg": "[{}.;]" },
+  { "id": "SKIP", "expreg": "[ \\t]" },
+  { "id": "NEWLINE", "expreg": "\\n" },
+  { "id": "ERRO", "expreg": "." }
+]
