@@ -1,7 +1,7 @@
  PLC2025
 
 ## Título
-Trabalho Prático 5 - Máquina de Vending
+Trabalho Prático 6 - Recursivo descendente de exp
 
 ## Autor
 - **Nome:** Luís Miguel Faria Lopes  
