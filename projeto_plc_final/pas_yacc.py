@@ -47,6 +47,7 @@ def init():
     parser.symbol_table = {}               # Tabela de símbolos vazia
     parser.current_scope = 0               # Escopo atual (0 = global)
     parser.next_address = 0                # Próximo endereço disponível na VM
+    lexer.lineno = 1
     return parser                          # Retorna o parser inicializado
 
 def add_semantic_error(message, line=None):
