@@ -1,0 +1,111 @@
+Program           -> PROGRAM ID ";" VarDecls BEGIN Statements OptSemicolon END "."
+
+VarDecls          -> VAR VarDeclList
+                  | ε
+
+VarDeclList       -> VarDeclList VarDecl ";"
+                  | VarDecl ";"
+
+VarDecl           -> IdList ":" Type
+
+IdList            -> ID "," IdList
+                  | ID
+
+Type              -> SimpleType
+                  | ArrayType
+
+SimpleType        -> INTEGER
+                  | BOOLEAN
+                  | REAL
+                  | CHAR
+                  | STRING_TYPE
+
+ArrayType         -> ARRAY "[" NUM DOTDOT NUM "]" OF SimpleType
+
+Statements        -> Statement ";" Statements   
+                  | Statement
+                  | ε
+
+Statement -> Assignment
+           | Writeln
+           | Write         
+           | IfStatement
+           | WhileStatement
+           | ForStatement
+           | RepeatStatement 
+           | Readln
+           | Block
+
+Block             -> BEGIN Statements OptSemicolon END
+
+OptSemicolon      -> ";"
+                  | ε
+
+Assignment        -> ID ASSIGN Expression                      # Variável simples
+                  | ID "[" NUM "]" ASSIGN Expression          # Array índice constante
+                  | ID "[" ID "]" ASSIGN Expression           # Array índice variável
+
+Writeln           -> WRITELN "(" WritelnArgs ")"
+                  | WRITELN                                  ← ADICIONADO (sem argumentos)
+
+Write             -> WRITE "(" WritelnArgs ")"                ← NOVO!
+                  | WRITE                                    ← NOVO! (sem argumentos)
+
+WritelnArgs       -> WritelnArgs "," WritelnArg
+                  | WritelnArg
+
+WritelnArg        -> STRING
+                  | Expression
+
+Readln            -> READLN "(" ID ")"                         # Variável simples
+                  | READLN "(" ID "[" ID "]" ")"              # Array índice variável
+                  | READLN "(" ID "[" NUM "]" ")"             # Array índice constante
+
+IfStatement       -> IF Expression THEN Statement ELSE Statement
+                  | IF Expression THEN Statement
+
+WhileStatement    -> WHILE Expression DO Statement
+
+ForStatement      -> FOR ID ASSIGN Expression TO Expression DO Statement
+                  | FOR ID ASSIGN Expression DOWNTO Expression DO Statement
+
+RepeatStatement   -> REPEAT Statements UNTIL Expression  
+
+Expression        -> LogicalOrExpression
+
+LogicalOrExpression -> LogicalAndExpression
+                    | LogicalOrExpression OR LogicalAndExpression
+
+LogicalAndExpression -> RelationalExpression
+                     | LogicalAndExpression AND RelationalExpression
+
+RelationalExpression -> SimpleExpression
+                     | SimpleExpression RELOP SimpleExpression
+
+SimpleExpression  -> Term
+                  | SimpleExpression ADDOP Term
+                  | ADDOP Term                               # Operador unário + ou -
+
+Term              -> Factor
+                  | Term MULOP Factor
+                  | Term DIV Factor                         # Divisão inteira
+                  | Term MOD Factor                         # Módulo
+
+Factor            -> ID                                       # Variável
+                  | NUM                                      # Número (integer ou real)
+                  | STRING                                   # String literal
+                  | CHARLIT                                  # Caractere literal
+                  | "(" Expression ")"
+                  | NOT Factor                               # Negação booleana
+                  | TRUE                                     # Booleano true
+                  | FALSE                                    # Booleano false
+                  | LENGTH "(" Expression ")"                # Função length
+                  | ID "[" NUM "]"                           # Array índice constante
+                  | ID "[" ID "]"                            # Array índice variável
+
+RELOP             -> "<" | ">" | LE | GE | "=" | NE
+ADDOP             -> "+" | "-"
+MULOP             -> "*" | "/"
+DOTDOT            -> ".."
+DIV               -> "div"
+MOD               -> "mod"
