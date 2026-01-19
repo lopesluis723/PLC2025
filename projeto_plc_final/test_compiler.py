@@ -212,7 +212,7 @@ begin
     writeln('Ambos falsos');
 end.""")
 
-# Exemplo com repeat
+# 8. Exemplo com repeat
 test_program("Exemplo Repeat Until", """
 program TestRepeat;
 var i: integer;
@@ -225,7 +225,18 @@ begin
 end.
 """)
 
-
+# 9. Exemplo com repeat
+test_program("Exemplo Contagem Decrescente", """
+program ContagemDecrescente;
+var
+  i: integer;
+begin
+  for i := 10 downto 1 do
+  begin
+    writeln(i);
+  end;
+end.
+""")
 # Erro - Acesso a array fora dos limites
 test_program("Erro - Array fora dos limites", """
 program ErroArrayLimites;
@@ -252,3 +263,4 @@ end.
 # Nota: O Exemplo 5 do enunciado (conversão binário-decimal) não é testado
 # pois requer funções definidas pelo usuário, que não foram implementadas
 # (funcionalidade opcional no enunciado)
+
