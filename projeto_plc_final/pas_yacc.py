@@ -474,7 +474,7 @@ def p_statements_many(p):
     r'statements : statement ";" statements'
     # Combina código do statement atual (p[1]) com os seguintes (p[3])
     # NOTA: Alterei de "statements ";" statement" para "statement ";" statements"
-    # Isso é recursão à DIREITA, que evita conflitos
+    # Isso é recursão à DIREITA, mas está a funcionar que evita conflitos
     left = p[1] if isinstance(p[1], list) else []
     right = p[3] if isinstance(p[3], list) else []
     p[0] = left + right  # Concatena listas de instruções VM
@@ -498,13 +498,6 @@ def p_block(p):
     r'block : BEGIN statements opt_semicolon END'
     # Um bloco contém uma lista de statements; repassa seu código
     p[0] = p[2] if isinstance(p[2], list) else []
-
-
-
-
-# REPEAT..UNTIL
-
-
 
 # REPEAT..UNTIL
 
@@ -725,7 +718,6 @@ def p_writeln(p):
     args_code = p[3] if isinstance(p[3], list) else []
     p[0] = args_code + ["writeln"]  # Código dos argumentos + writeln
 
-# E adicione esta nova regra:
 def p_writeln_empty(p):
     r'writeln : WRITELN'
     p[0] = ["writeln"]
@@ -789,7 +781,7 @@ def p_write(p):
     args_code = p[3] if isinstance(p[3], list) else []
     p[0] = args_code  # Apenas escreve, não pula linha
 
-# Se quiser write sem argumentos (menos comum, mas válido):
+# Caso write n tenha argumos (é possivel em pascall)
 def p_write_empty(p):
     r'write : WRITE'
     p[0] = []  # write sem argumentos não faz nada
@@ -891,8 +883,6 @@ def p_readln_array_var(p):
         "store 0"                        # Armazena (valor, endereço) - valor no topo
     ]
 
-
-# ADICIONAR APÓS a função p_readln_array_var (por volta da linha 550)
 
 def p_readln_array_num(p):
     r'readln : READLN "(" ID "[" NUM "]" ")"'

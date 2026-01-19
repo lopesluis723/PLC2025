@@ -117,10 +117,10 @@ Assignment        -> ID ASSIGN Expression                      # Variável simpl
                   | ID "[" ID "]" ASSIGN Expression           # Array índice variável
 
 Writeln           -> WRITELN "(" WritelnArgs ")"
-                  | WRITELN                                  ← ADICIONADO (sem argumentos)
+                  | WRITELN                                  
 
-Write             -> WRITE "(" WritelnArgs ")"                ← NOVO!
-                  | WRITE                                    ← NOVO! (sem argumentos)
+Write             -> WRITE "(" WritelnArgs ")"                
+                  | WRITE                                    
 
 WritelnArgs       -> WritelnArgs "," WritelnArg
                   | WritelnArg
@@ -252,7 +252,7 @@ literals = ['+', '-', '*', '/', '(', ')', ';', '.', ',', ':', '>', '<', '=', '['
 
 **Palavras-Chave**
 
-28 palavras-chave organizadas por categoria:
+29 palavras-chave organizadas por categoria:
 
 | Categoria | Palavras-Chave |
 |-----------|----------------|
@@ -888,13 +888,13 @@ Motivo: Funções definidas pelo utilizador não foram implementadas (opcional n
 |---------------|-----------|-----------|--------|--------|--------|
 | Olá Mundo     | 5         | 0         | 0      | 0      | FUNCIONOU|
 | Fatorial      | 44        | 3         | 0      | 1      | FUNCIONOU |
-| Número Primo  | 58        | 3         | 0      | 3      | FUNCIONOU |
+| Número Primo  | 59        | 3         | 0      | 3      | FUNCIONOU |
 | Soma Array    | 51        | 2         | 1      | 1      | FUNCIONOU |
 
 
 
 
-#### 8. Síntese dos Resultados
+### 8. Síntese dos Resultados
 
 **Objetivos Alcançados:**
 
@@ -914,7 +914,7 @@ Motivo: Funções definidas pelo utilizador não foram implementadas (opcional n
 
 4. **Qualidade do Código Gerado**: O compilador produz código VM correto, eficiente e compatível com a máquina fornecida, preservando a semântica original dos programas Pascal.
 
-#### 9. Análise das Limitações
+### 9. Análise das Limitações
 
 **Principais Restrições:**
 
@@ -927,7 +927,7 @@ Motivo: Funções definidas pelo utilizador não foram implementadas (opcional n
 4. **Otimizações Limitadas**: Geração de código direta sem otimizações avançadas.
 
 
-#### 10. Possíveis Melhorias
+### 10. Possíveis Melhorias
 
 **Melhorias Imediatas (Alta Prioridade):**
 

@@ -13,7 +13,7 @@ literals = ['+', '-', '*', '/', '(', ')', ';', '.', ',', ':', '>', '<', '=', '['
 # - Palavras-chave da linguagem Pascal: program, begin, end, var, tipos, estruturas de controle, etc.
 # - Palavras-chave para subprogramas (function, procedure) e arrays (array, of)
 # - Valores booleanos (true, false) e função intrínseca (length)
-tokens = ['NUM', 'ID', 'CHARLIT', 'STRING',  # <-- ADICIONE CHARLIT aqui
+tokens = ['NUM', 'ID', 'CHARLIT', 'STRING',  
           'ASSIGN', 'GE', 'LE', 'NE', 'DOTDOT',
           'PROGRAM', 'BEGIN', 'END', 'VAR', 'INTEGER', 'BOOLEAN', 'REAL', 'CHAR', 'STRING_TYPE',
           'IF', 'THEN', 'ELSE', 'WHILE', 'DO', 'FOR', 'TO', 'DOWNTO', 'REPEAT', 'UNTIL',

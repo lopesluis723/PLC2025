@@ -46,10 +46,10 @@ Assignment        -> ID ASSIGN Expression                      # Variável simpl
                   | ID "[" ID "]" ASSIGN Expression           # Array índice variável
 
 Writeln           -> WRITELN "(" WritelnArgs ")"
-                  | WRITELN                                  ← ADICIONADO (sem argumentos)
+                  | WRITELN                                  
 
-Write             -> WRITE "(" WritelnArgs ")"                ← NOVO!
-                  | WRITE                                    ← NOVO! (sem argumentos)
+Write             -> WRITE "(" WritelnArgs ")"               
+                  | WRITE                                    
 
 WritelnArgs       -> WritelnArgs "," WritelnArg
                   | WritelnArg
